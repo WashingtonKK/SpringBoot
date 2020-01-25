@@ -11,6 +11,7 @@ import dao.PersonDao;
 import model.Person;
 
 //For a service we use @Service, or also @Component
+//contains all the logic that our application will need and use
 @Service
 public class PersonService {
 	
@@ -35,5 +36,13 @@ public class PersonService {
 
 	public Optional<Person> getPersonById( UUID id) {
 		return personDao.selectPersonById(id);
+	}
+	
+	public int deletePerson(UUID id) {
+		return personDao.deletePersonById(id);
+	}
+	
+	public int updatePerson(UUID id, Person newPerson) {
+		return personDao.updatePersonById(id, newPerson);
 	}
 }
